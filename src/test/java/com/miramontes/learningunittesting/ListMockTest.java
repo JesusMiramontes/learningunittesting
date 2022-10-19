@@ -2,8 +2,7 @@ package com.miramontes.learningunittesting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -44,5 +43,28 @@ public class ListMockTest {
         assertEquals("anyInt", listMock.get(1));
         assertEquals("anyInt", listMock.get(100));
         assertEquals("anyInt", listMock.get(anyInt()));
+    }
+
+    @Test
+    public void verificationBasics() {
+        listMock.get(0);
+        listMock.get(0);
+        listMock.get(1);
+        listMock.get(2);
+
+        // Verify method get with param '2' is called.
+        verify(listMock).get(2);
+
+        // Verify method get with param '0' is called exactly two times.
+        verify(listMock, times(2)).get(0);
+
+        // Verify method get with any int as param gets called at least one time.
+        verify(listMock, atLeastOnce()).get(anyInt());
+
+        // Verify method get gets called maximum 4 times.
+        verify(listMock, atMost(4)).get(anyInt());
+
+        // Verify method get with param 100 never gets called.
+        verify(listMock, never()).get(100);
     }
 }
