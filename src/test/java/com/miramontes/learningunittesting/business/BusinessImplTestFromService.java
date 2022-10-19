@@ -1,22 +1,21 @@
 package com.miramontes.learningunittesting.business;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import com.miramontes.learningunittesting.data.SomeDataServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class BusinessImplMockTest {
 
-    private final BusinessImpl business = new BusinessImpl();
-    private final SomeDataServiceImpl someDataServiceMock = mock(SomeDataServiceImpl.class);
+    @InjectMocks private final BusinessImpl business = new BusinessImpl();
 
-    @BeforeEach
-    void setUp() {
-        business.setSomeDataService(someDataServiceMock);
-    }
+    @Mock private SomeDataServiceImpl someDataServiceMock;
 
     @Test
     void calculateSum_basic() {
