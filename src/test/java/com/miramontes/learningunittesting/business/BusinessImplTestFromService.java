@@ -33,9 +33,6 @@ class BusinessImplMockTest {
         // Mock call to service method. Make it return the array we need.
         when(someDataServiceMock.retrieveAllData()).thenReturn(new int[] {});
 
-        // Pass Mock service to business class.
-        business.setSomeDataService(someDataServiceMock);
-
         // Check results.
         int actualResult = business.calculateSumUsingDataService();
         assertEquals(0, actualResult);
@@ -45,9 +42,6 @@ class BusinessImplMockTest {
     void calculateSum_oneValue() {
         // Mock call to service method. Make it return the array we need.
         when(someDataServiceMock.retrieveAllData()).thenReturn(new int[] {1});
-
-        // Pass Mock service to business class.
-        business.setSomeDataService(someDataServiceMock);
 
         // Check results.
         int actualResult = business.calculateSumUsingDataService();
