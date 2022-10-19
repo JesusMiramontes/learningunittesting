@@ -1,6 +1,7 @@
 package com.miramontes.learningunittesting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -35,5 +36,13 @@ public class ListMockTest {
         // Validate.
         assertEquals("Zero", listMock.get(0));
         assertEquals("One", listMock.get(1));
+    }
+
+    @Test
+    public void returnWithArgumentMatchers() {
+        when(listMock.get(anyInt())).thenReturn("anyInt");
+        assertEquals("anyInt", listMock.get(1));
+        assertEquals("anyInt", listMock.get(100));
+        assertEquals("anyInt", listMock.get(anyInt()));
     }
 }
