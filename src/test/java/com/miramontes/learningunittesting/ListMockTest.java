@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -98,5 +99,29 @@ public class ListMockTest {
 
         assertTrue(capturedArguments.contains("object 1"));
         assertTrue(capturedArguments.contains("object 2"));
+    }
+
+    @Test
+    public void mocking() {
+        // Mocking doesn't retain the original class behavior. Only behaves as we specify.
+        ArrayList arrayListMock = mock(ArrayList.class);
+        System.out.println("arrayListMock.size() = " + arrayListMock.size()); // Will return 0;
+        arrayListMock.add("foo");
+        arrayListMock.add("bar");
+        System.out.println("arrayListMock.size() = " + arrayListMock.size()); // Still returns 0;
+        when(arrayListMock.size()).thenReturn(10);
+        System.out.println("arrayListMock.size() = " + arrayListMock.size()); // Will return 10;
+    }
+
+    @Test
+    public void spying() {
+        // Spying will behave as the class is designed to, but we can still override behavior.
+        ArrayList arrayListSpy = spy(ArrayList.class);
+        System.out.println("arrayListSpy.size() = " + arrayListSpy.size()); // Will return 0;
+        arrayListSpy.add("foo");
+        arrayListSpy.add("bar");
+        System.out.println("arrayListSpy.size() = " + arrayListSpy.size()); // Still returns 2;
+        when(arrayListSpy.size()).thenReturn(10);
+        System.out.println("arrayListSpy.size() = " + arrayListSpy.size()); // Will return 10;
     }
 }
