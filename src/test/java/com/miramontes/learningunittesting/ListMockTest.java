@@ -1,11 +1,13 @@
 package com.miramontes.learningunittesting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 public class ListMockTest {
     List listMock = mock(List.class);
@@ -66,5 +68,35 @@ public class ListMockTest {
 
         // Verify method get with param 100 never gets called.
         verify(listMock, never()).get(100);
+    }
+
+    @Test
+    public void argumentCapturing() {
+        // SUT
+        listMock.add("SomeString");
+
+        // Including Argument Captor
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        verify(listMock).add(captor.capture());
+
+        // Assertion
+        assertEquals("SomeString", captor.getValue());
+    }
+
+    @Test
+    public void multipleArgumentCapturing() {
+        // SUT
+        listMock.add("object 1");
+        listMock.add("object 2");
+
+        // Including Argument Captor
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        verify(listMock, times(2)).add(captor.capture());
+
+        // Retrieving captured arguments.
+        List<String> capturedArguments = captor.getAllValues();
+
+        assertTrue(capturedArguments.contains("object 1"));
+        assertTrue(capturedArguments.contains("object 2"));
     }
 }
