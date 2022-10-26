@@ -1,6 +1,7 @@
 package com.miramontes.learningunittesting.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ class HelloWorldControllerTest {
                 MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON);
 
         // Store response
-        MvcResult result = mockMvc.perform(request).andReturn();
+        MvcResult result = mockMvc.perform(request).andExpect(status().isOk()).andReturn();
 
         // Verify response
         assertEquals("Hello world.", result.getResponse().getContentAsString());
