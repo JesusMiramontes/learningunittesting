@@ -11,4 +11,8 @@ https://www.udemy.com/course/learn-unit-testing-with-spring-boot/
 7. Mockito. Verify calls to methods using Verify: https://github.com/JesusMiramontes/learningunittesting/commit/9d4aa6827a26fb0bdae4e8a2eebf24b957c83d49
 8. Validate received params on a certain method using ArgumentCaptor: https://github.com/JesusMiramontes/learningunittesting/commit/016ae6488053cf4afc2ebcf9f841e26988051242
 9. Spy: https://github.com/JesusMiramontes/learningunittesting/commit/72d7cdbbcc07c08c3091cdcf466f016e199c0b12
-10. 
+10. MockMvc. Simple test on endpoint. Validate response content: https://github.com/JesusMiramontes/learningunittesting/commit/a5f0ba3c5a9ff211568d614ca975c552d6216106
+11. MockMvc. Verify response status: https://github.com/JesusMiramontes/learningunittesting/commit/63ccb2c9b2e2179a41a847fe5bc851511c675fe6
+12. MockMvc. Test JSON Response: https://github.com/JesusMiramontes/learningunittesting/commit/9889623919437e70c5770fe11860e235f10a3c5c
+13. JSONAssert. Validate JSON Responses: https://github.com/JesusMiramontes/learningunittesting/commit/39a1fc9a939d442e7ade404d5be2b41f20f06ad2
+14. 
