@@ -1,16 +1,15 @@
 package com.miramontes.learningunittesting.model;
 
 import javax.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Item {
     @Id private int id;
 
