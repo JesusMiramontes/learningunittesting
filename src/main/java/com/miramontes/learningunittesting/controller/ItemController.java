@@ -2,6 +2,7 @@ package com.miramontes.learningunittesting.controller;
 
 import com.miramontes.learningunittesting.business.ItemService;
 import com.miramontes.learningunittesting.model.Item;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +24,16 @@ public class ItemController {
         Item item = itemService.retrieveHardcodedItem();
         System.out.println(item.toString());
         return item;
+    }
+
+    @GetMapping("/all-items-from-db")
+    public List<Item> itemFromDb() {
+        List<Item> itemList = itemService.findAll();
+        itemList.forEach(
+                item -> {
+                    item.setValue(item.getPrice() * item.getQuantity());
+                });
+        System.out.println(itemList.toArray().toString());
+        return itemList;
     }
 }
