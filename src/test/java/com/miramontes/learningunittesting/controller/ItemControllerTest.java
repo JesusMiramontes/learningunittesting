@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.miramontes.learningunittesting.business.ItemService;
 import com.miramontes.learningunittesting.model.Item;
+import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ class ItemControllerTest {
     void setUp() {
         when(itemServiceMock.retrieveHardcodedItem())
                 .thenReturn(Item.builder().id(1).name("Bar").price(200).quantity(200).build());
+        when(itemServiceMock.findAll())
+                .thenReturn(
+                        Arrays.asList(
+                                Item.builder().id(1).name("Foo").price(100).quantity(100).build(),
+                                Item.builder().id(2).name("Bar").price(200).quantity(200).build()));
     }
 
     @Test
@@ -51,6 +57,21 @@ class ItemControllerTest {
         MvcResult result =
                 mockMvc.perform(request)
                         .andExpect(content().json("{id:1, name:Bar, price:200, quantity:200}"))
+                        .andReturn();
+    }
+
+    @Test
+    void retrieveAllItemsService() throws Exception {
+        RequestBuilder request =
+                MockMvcRequestBuilders.get("/all-items-from-db").accept(MediaType.APPLICATION_JSON);
+        MvcResult result =
+                mockMvc.perform(request)
+                        .andExpect(
+                                content()
+                                        .json(
+                                                "[{id:1, name:Foo, price:100, quantity:100},"
+                                                        + " {id:2, name:Bar, price:200,"
+                                                        + " quantity:200}]"))
                         .andReturn();
     }
 }
