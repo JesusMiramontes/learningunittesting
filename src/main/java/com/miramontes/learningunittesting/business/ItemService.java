@@ -19,6 +19,11 @@ public class ItemService {
     }
 
     public List<Item> findAll() {
-        return itemRepository.findAll();
+        List<Item> itemList = itemRepository.findAll();
+        itemList.forEach(
+                item -> {
+                    item.setValue(item.getPrice() * item.getQuantity());
+                });
+        return itemList;
     }
 }

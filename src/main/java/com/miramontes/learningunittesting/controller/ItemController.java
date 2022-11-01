@@ -29,10 +29,6 @@ public class ItemController {
     @GetMapping("/all-items-from-db")
     public List<Item> itemFromDb() {
         List<Item> itemList = itemService.findAll();
-        itemList.forEach(
-                item -> {
-                    item.setValue(item.getPrice() * item.getQuantity());
-                });
         System.out.println(itemList.toArray().toString());
         return itemList;
     }
