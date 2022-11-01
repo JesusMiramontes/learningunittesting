@@ -16,4 +16,7 @@ https://www.udemy.com/course/learn-unit-testing-with-spring-boot/
 12. MockMvc. Test JSON Response: https://github.com/JesusMiramontes/learningunittesting/commit/9889623919437e70c5770fe11860e235f10a3c5c
 13. JSONAssert. Validate JSON Responses: https://github.com/JesusMiramontes/learningunittesting/commit/39a1fc9a939d442e7ade404d5be2b41f20f06ad2
 14. MockBean. Inject mock bean, test service layer: https://github.com/JesusMiramontes/learningunittesting/commit/cc1742a6e11e11b61040b959f9a82c9e2ff1a947
-15.
+15. Test list of objects from Service Layer: https://github.com/JesusMiramontes/learningunittesting/commit/448daf6b503cc3afba90f097858652415312518f
+16. Mockito, MockitoExtension. Test Service Layer: https://github.com/JesusMiramontes/learningunittesting/commit/93887893dfaaa188094a55566dc78a3f36be34f7
+17. @DataJpaTest. Test data layer / repository: https://github.com/JesusMiramontes/learningunittesting/commit/dd51a9429d52b40ce970f73278ca9ab2066eb295
+18. 
