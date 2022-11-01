@@ -19,4 +19,5 @@ https://www.udemy.com/course/learn-unit-testing-with-spring-boot/
 15. Test list of objects from Service Layer: https://github.com/JesusMiramontes/learningunittesting/commit/448daf6b503cc3afba90f097858652415312518f
 16. Mockito, MockitoExtension. Test Service Layer: https://github.com/JesusMiramontes/learningunittesting/commit/93887893dfaaa188094a55566dc78a3f36be34f7
 17. @DataJpaTest. Test data layer / repository: https://github.com/JesusMiramontes/learningunittesting/commit/dd51a9429d52b40ce970f73278ca9ab2066eb295
-18. 
+18. @SpringBootTest. Simple Integration Test: https://github.com/JesusMiramontes/learningunittesting/commit/f124f1915aace7df3d4273a0089c293b28d8c11d
+19. Hamcrest assertions: https://github.com/JesusMiramontes/learningunittesting/commit/3e11b591654599b7ed70b071e6f859c447942de3
